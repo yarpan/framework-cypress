@@ -15,5 +15,7 @@ describe('test2', () => {
       cy.go("forward")
       cy.location("host").should('eq', "en.wikipedia.org");
       cy.location("pathname").should('eq', "/wiki/Main_Page");
+
+      
     })
   })

@@ -1,8 +1,9 @@
+/// <reference types="Cypress" />
+
 describe('template spec', () => {
   it('passes', () => {
     cy.visit('https://wikipedia.org');
     
-
     cy.get("[dir='ltr'] a").should('have.length', 9)
 
     cy.contains("Download Wikipedia for Android or iOS");                 //page contains text
@@ -38,9 +39,7 @@ describe('select', () => {
     cy.location("host").should('eq', "ja.wikipedia.org");
     cy.location("pathname").should('eq', "/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8")
 
-
-
-
+    
   })
 })
 
