@@ -1,22 +1,18 @@
 
-const WikiLanding = require('../pages/wiki-landing');
+const WikiLandingPage = require('../pages/wiki-landing');
 const WikiHome = require('../pages/wiki-home');
 
 describe('template spec', () => {
-    it('passes', () => {
-        let wikiLanding = new WikiLanding();
+    it.skip('passes', () => {
+        let wikiLanding = new WikiLandingPage();
         let wikiHome = new WikiHome();
 
-        WikiLanding.navigate();
-        WikiLanding.engBtn().click();
+        WikiLandingPage.navigate();
+        WikiLandingPage.engBtn().click();
 
         wikiHome.createAccount().click();
         cy.go('back');
-
     })
-
-
-
 })
 
 

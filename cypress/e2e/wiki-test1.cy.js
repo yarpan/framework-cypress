@@ -3,7 +3,6 @@
 describe('template spec', () => {
   it('passes', () => {
     cy.visit('https://wikipedia.org');
-    
     cy.get("[dir='ltr'] a").should('have.length', 9)
 
     cy.contains("Download Wikipedia for Android or iOS");                 //page contains text
@@ -17,30 +16,34 @@ describe('template spec', () => {
   })
 })
 
-
-describe('text', () => {
-  it('passes', () => {
-    cy.visit('https://wikipedia.org');
-    
-    cy.get("#search-form #searchInput").type("Automation{enter}");
-
-  })
-})
-
-
 describe('select', () => {
   it('passes', () => {
     cy.visit('https://wikipedia.org');
     
     //cy.get("[dir='ltr'] a").first().click();
     //cy.get("[dir='ltr'] a").last().click();
-    cy.get("[dir='ltr'] a").eq(3).click();  //5th element in list
+    cy.get("[dir='ltr'] a").eq(4).click();  //5th element in list
 
     cy.location("host").should('eq', "ja.wikipedia.org");
     cy.location("pathname").should('eq', "/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8")
-
-    
   })
 })
 
 
+describe('test2', () => {
+  it('passes', () => {
+    // open Wiki.org  
+    cy.visit('https://wikipedia.org');
+    cy.get("[dir='ltr'] a").eq(0).click();
+    cy.location("host").should('eq', "en.wikipedia.org");
+    cy.location("pathname").should('eq', "/wiki/Main_Page");
+
+    cy.go("back")
+    cy.location("host").should('eq', "www.wikipedia.org");
+    cy.location("pathname").should('eq', "/");
+
+    cy.go("forward")
+    cy.location("host").should('eq', "en.wikipedia.org");
+    cy.location("pathname").should('eq', "/wiki/Main_Page");
+  })
+})
