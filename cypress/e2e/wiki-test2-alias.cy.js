@@ -15,6 +15,7 @@ describe('Amazon', () => {
   })
 })
 
+
 describe('Amazon', () => {
   it('multisearch with alias', () => {
     cy.visit('https://amazon.com');
@@ -33,8 +34,13 @@ describe('Amazon', () => {
   })
 })
 
+
 describe('Amazon', () => {
-  it('multisearch with then', () => {
+  before(() => {
+    cy.visit('https://google.com');
+  })
+
+  it('test with then', () => {
     cy.visit('https://amazon.com');
 
     cy.get("#nav-xshop a").should("have.length", 6);
@@ -42,5 +48,10 @@ describe('Amazon', () => {
       expect(elements.length).to.equal(6);
       expect(elements).to.be.visible;
     })
+  })
+
+  it('test with custom timeout', {defaultCommandTimeout:7000}, () => {
+    cy.visit('https://amazon.com');
+    cy.get("#nav-xshop a").should("have.length", 6);
   })
 })
