@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 
-describe('Amazon', () => {
-  it('multisearch', () => {
+describe('Amazon multisearch', () => {
+  it('multisearch simple', () => {
     cy.visit('https://amazon.com');
 
     cy.get("#twotabsearchtextbox");
@@ -13,10 +13,7 @@ describe('Amazon', () => {
 
     cy.get("#twotabsearchtextbox").type("processor{enter}");
   })
-})
 
-
-describe('Amazon', () => {
   it('multisearch with alias', () => {
     cy.visit('https://amazon.com');
 
@@ -35,14 +32,13 @@ describe('Amazon', () => {
 })
 
 
-describe('Amazon', () => {
-  before(() => {
-    cy.visit('https://google.com');
+describe('Amazon with before', () => {
+  beforeEach(() => {
+    cy.visit('https://amazon.com');
   })
 
   it('test with then', () => {
-    cy.visit('https://amazon.com');
-
+    //cy.visit('https://amazon.com');
     cy.get("#nav-xshop a").should("have.length", 6);
     cy.get("#nav-xshop a").then((elements) => {
       expect(elements.length).to.equal(6);
@@ -51,7 +47,15 @@ describe('Amazon', () => {
   })
 
   it('test with custom timeout', {defaultCommandTimeout:7000}, () => {
-    cy.visit('https://amazon.com');
+    //cy.visit('https://amazon.com');
     cy.get("#nav-xshop a").should("have.length", 6);
   })
+
+  it('test with custom command', () => {
+    //cy.visit('https://amazon.com');
+    cy.goAmazon();
+    cy.screenshot();
+  })
+
+
 })

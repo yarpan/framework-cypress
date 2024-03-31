@@ -1,11 +1,11 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  video: true,
+  //video: true,
   //defaultCommandTimeout: 5000,
   e2e: {
     //baseUrl: "https://amazon.com",
-    defaultCommandTimeout: 10000,
+    defaultCommandTimeout: 6000,
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
