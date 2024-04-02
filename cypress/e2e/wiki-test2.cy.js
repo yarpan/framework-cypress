@@ -50,12 +50,10 @@ describe('Amazon with before', () => {
     //cy.visit('https://amazon.com');
     cy.get("#nav-xshop a").should("have.length", 6);
   })
+})
 
-  it('test with custom command', () => {
-    //cy.visit('https://amazon.com');
-    cy.goAmazon();
-    cy.screenshot();
-  })
-
-
+it('test with custom command', () => {
+  //cy.visit('https://amazon.com');
+  cy.goAmazon();
+  cy.screenshot();
 })

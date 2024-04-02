@@ -27,3 +27,10 @@
 Cypress.Commands.add("goAmazon", () => {
     cy.visit('https://www.amazon.com');
 })
+
+Cypress.Commands.add("closePopupMask", () => {
+    cy.get('#popup_info .header .close').click();
+    cy.get('#popup_info').should('not.be.visible');
+})
+
+
