@@ -1,11 +1,11 @@
 
-const WikiLandingPage = require('../pages/wiki-landing');
-const WikiHome = require('./pages/wiki-home');
+const LandingPage = require('../pages/landing-page');
+const MainPage = require('../pages/main-page');
 
 describe('template spec', () => {
     it.skip('passes', () => {
-        let wikiLanding = new WikiLandingPage();
-        let wikiHome = new WikiHome();
+        let landingPage = new LandingPage();
+        let mainPage = new MainPage();
 
         WikiLandingPage.navigate();
         WikiLandingPage.engBtn().click();
